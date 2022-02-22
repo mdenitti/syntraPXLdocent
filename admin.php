@@ -2,8 +2,32 @@
 include 'connection.php';
 include 'common.php';
 
+
+// print_r($_REQUEST);
+
+if (isset($_REQUEST['bijwerken'])) {
+
+    $id = $_POST['id'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
+    $website = $_POST['website'];
+    $tel = $_POST['tel'];
+    $companyName = $_POST['companyName'];
+    $street_nr = $_POST['street_nr'];
+    $code_city = $_POST['code_city'];
+    $approved = $_POST['approved'];
+    $bio = $_POST['bio'];
+
+
+    $query = "UPDATE `teachers` SET `firstName` = '$firstName', `lastName` = '$lastName', `email` = '$email', `website` = '$website', `tel` = '$tel', `companyName` = '$companyName', `street_nr` = '$street_nr', `code_city` = '$code_city', `approved` = $approved, `bio` = 'bio' WHERE `id` = $id";
+    mysqli_query($conn, $query);
+
+}
+
 $query = "SELECT * FROM teachers";
 $result = mysqli_query($conn, $query);
+
 
 ?>
 <!DOCTYPE html>
@@ -42,6 +66,14 @@ $result = mysqli_query($conn, $query);
             <div class="col">
             <img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px">
                  <h1>Admin</h1>
+                 <?PHP if (isset($_REQUEST['bijwerken'])) { ?> 
+                    
+                    <div class="alert alert-success" role="alert">
+                        Docent werd bijgewerkt...
+                        </div>
+                    
+                    <?PHP } ?>
+
                     <table id="myTable" class="display">
                         <thead>
                             <tr>

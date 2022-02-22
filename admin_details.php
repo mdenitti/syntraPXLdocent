@@ -26,7 +26,7 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
                      Bijwerken van gevens docent + aanpassen status...
                  </div>
                   <div class="submitform">
-                      <form method="post" action="admin_details_post.php">
+                      <form method="post" action="admin.php">
 
                       <?php if ($result['approved'] == 0) { ?>
                       <select name="approved" class="form-control offline">
@@ -52,7 +52,7 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
                       <input type="text" class="form-control mt-2" name="street_nr" value="<?php echo $result['street_nr']?>" required>
                       <input type="text" class="form-control mt-2" name="code_city" value="<?php echo $result['code_city']?>" required>
                       <textarea class="form-control mt-2" name="bio"><?php echo $result['bio']?></textarea>
-                      <button type="submit" class="btn btn-sm btn-success mt-2">Bijwerken</button>
+                      <button type="submit" class="btn btn-sm btn-success mt-2" name="bijwerken" value="bijwerken">Bijwerken</button>
                       <a class="btn btn-sm btn-danger mt-2" href ="admin_delete.php?id=<?php echo $result['id']?>">Verwijderen</a>
 
                   </div>
