@@ -2,3 +2,6 @@
 body {
     font-family: 'Barlow', sans-serif;
 }
+span.docent {
+    font-weight: 200;
+}
