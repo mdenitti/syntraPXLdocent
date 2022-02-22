@@ -20,7 +20,7 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
     <div class="container">
         <div class="row">
             <div class="col">
-                 <img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px">
+            <a href="admin.php"><img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px"></a>
                  <h1>Docent<span class="docent"> Update</span></h1>
                  <div class="intro mb-4">
                      Bijwerken van gevens docent + aanpassen status...
@@ -29,14 +29,14 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
                       <form method="post" action="admin.php">
 
                       <?php if ($result['approved'] == 0) { ?>
-                      <select name="approved" class="form-control offline">
+                      <select name="approved" class="form-select offline">
                           <option value="0" selected>Offline</option>
                           <option value="1">Online</option>
                       </select>
                       <?php } ?>
 
                       <?php if ($result['approved'] == 1) { ?>
-                      <select name="approved" class="form-control online">
+                      <select name="approved" class="form-select online">
                           <option value="0">Offline</option>
                           <option value="1" selected>Online</option>
                       </select>
@@ -53,12 +53,14 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
                       <input type="text" class="form-control mt-2" name="code_city" value="<?php echo $result['code_city']?>" required>
                       <textarea class="form-control mt-2" name="bio"><?php echo $result['bio']?></textarea>
                       <button type="submit" class="btn btn-sm btn-success mt-2" name="bijwerken" value="bijwerken">Bijwerken</button>
-                      <a class="btn btn-sm btn-danger mt-2" href ="admin_delete.php?id=<?php echo $result['id']?>">Verwijderen</a>
+                      <button type="submit" onclick="return confirm('Ben u zeker?')" class="btn btn-sm btn-danger mt-2" name="verwijderen" value="verwijderen">Verwijderen</button>
+                     
 
                   </div>
 
             </div>
         </div>
     </div>
+    <?PHP include 'footer.php'; ?>
 </body>
 </html>

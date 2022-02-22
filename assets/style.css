@@ -5,12 +5,54 @@ body {
 span.docent {
     font-weight: 200;
 }
-select.form-control.offline {
+select.form-select.offline {
     border-color: #fb0000;
     background-color: #ff000017;
 }
 
-select.form-control.online {
+select.form-select.online {
     border-color: #8bc34a;
     background-color: #cddc3933;
+}
+.container-fluid.footer {
+    background-color: #c70000;
+    min-height: 300px;
+    margin-top: 40px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+img.mt-4.question {
+    margin-left: 10px;
+}
+.small.footer {
+    color: #ffffff71;
+}
+.links {
+    padding-top: 20px;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    
+}
+a.fa-brands {
+    text-decoration: none;
+    color: white;
+    float:left;
+    margin-right: 20px;
+
+}
+
+.small.d-flex.justify-content-center.footer.names {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a.btn.btn-outline-secondary.position-relative {
+    margin-right: 30px;
+}
+a.btn.btn-secondary.position-relative {
+    margin-right: 30px;
 }

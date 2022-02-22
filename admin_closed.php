@@ -3,38 +3,9 @@ include 'connection.php';
 include 'common.php';
 
 
-// print_r($_REQUEST);
-
-if (isset($_REQUEST['bijwerken'])) {
-
-    $id = $_POST['id'];
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $website = $_POST['website'];
-    $tel = $_POST['tel'];
-    $companyName = $_POST['companyName'];
-    $street_nr = $_POST['street_nr'];
-    $code_city = $_POST['code_city'];
-    $approved = $_POST['approved'];
-    $bio = $_POST['bio'];
-
-    $query = "UPDATE `teachers` SET `firstName` = '$firstName', `lastName` = '$lastName', `email` = '$email', `website` = '$website', `tel` = '$tel', `companyName` = '$companyName', `street_nr` = '$street_nr', `code_city` = '$code_city', `approved` = $approved, `bio` = 'bio' WHERE `id` = $id";
-    mysqli_query($conn, $query);
-}
-
-
-if (isset($_REQUEST['verwijderen'])) {
-
-    $id = $_POST['id'];
-
-    $query = "DELETE from `teachers` WHERE `id` = $id";
-    mysqli_query($conn, $query);
-
-}
-
-$query = "SELECT * FROM teachers WHERE approved = 0";
+$query = "SELECT * FROM teachers WHERE approved = 1";
 $result = mysqli_query($conn, $query);
+
 
 ?>
 <!DOCTYPE html>
@@ -74,15 +45,15 @@ $result = mysqli_query($conn, $query);
             <a href="admin.php"><img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px"></a>
                  <h1>Admin</h1>
 
-                <div class="nav mb-4 mt-4">
-                        <a href="admin.php" class="btn btn-secondary position-relative">
+                 <div class="nav mb-4 mt-4">
+                        <a href="admin.php" class="btn btn-outline-secondary position-relative">
                             Open
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                <?PHP include 'includes/countOpen.php'?>
                             </span>
                         </a>
 
-                        <a href="admin_closed.php" class="btn btn-outline-secondary position-relative">
+                        <a href="admin_closed.php" class="btn btn-secondary position-relative">
                             Verwerkt
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             <?PHP include 'includes/countClosed.php'?>
