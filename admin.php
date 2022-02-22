@@ -2,10 +2,8 @@
 include 'connection.php';
 include 'common.php';
 
-
 $query = "SELECT * FROM teachers";
 $result = mysqli_query($conn, $query);
-
 
 ?>
 <!DOCTYPE html>
@@ -24,8 +22,18 @@ $result = mysqli_query($conn, $query);
 
     <script>
     $(document).ready( function () {
-        $('#myTable').DataTable();
-    } );
+        $('#myTable').DataTable({
+    language: {
+        search: "Zoeken in de tabel:",
+        paginate: {
+        "first": "Eerste",
+        "last": "Laatste",
+        "next": "Volgende",
+        "previous": "Vorige"
+    },
+    }
+    });
+        });
     </script>
 </head>
 <body>
@@ -34,8 +42,6 @@ $result = mysqli_query($conn, $query);
             <div class="col">
             <img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px">
                  <h1>Admin</h1>
-
-
                     <table id="myTable" class="display">
                         <thead>
                             <tr>
@@ -44,30 +50,24 @@ $result = mysqli_query($conn, $query);
                                 <th>Achternaam 2</th>
                                 <th>Email</th>
                                 <th>Tel</th>
-                                <th>Onderneming</th>
-                                
+                                <th>Onderneming</th>        
                             </tr>
                         </thead>
                         <tbody>
-
                         <?php 
-                 while ($row = mysqli_fetch_assoc($result)){
-                    echo "<tr>";
-                    echo "<td><a href='admin_details.php?=".$row['id']."' class='btn btn-danger btn-sm'>details</a></td>";
-                    echo "<td>".$row['firstName']."</td>";
-                    echo "<td>".$row['lastName']."</td>";
-                    echo "<td>".$row['email']."</td>";
-                    echo "<td>".$row['tel']."</td>";
-                    echo "<td>".$row['companyName']."</td>";
-                   
-                    echo "</tr>";
-                 }
-              
-                 ?>
-            
+                            while ($row = mysqli_fetch_assoc($result)){
+                                echo "<tr>";
+                                echo "<td><a href='admin_details.php?id=".$row['id']."' class='btn btn-danger btn-sm'>details</a></td>";
+                                echo "<td>".$row['firstName']."</td>";
+                                echo "<td>".$row['lastName']."</td>";
+                                echo "<td>".$row['email']."</td>";
+                                echo "<td>".$row['tel']."</td>";
+                                echo "<td>".$row['companyName']."</td>";
+                                echo "</tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
-
             </div>
         </div>
     </div>

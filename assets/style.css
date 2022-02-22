@@ -5,3 +5,12 @@ body {
 span.docent {
     font-weight: 200;
 }
+select.form-control.offline {
+    border-color: #fb0000;
+    background-color: #ff000017;
+}
+
+select.form-control.online {
+    border-color: #8bc34a;
+    background-color: #cddc3933;
+}
