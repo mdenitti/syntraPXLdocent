@@ -39,9 +39,13 @@ $result = mysqli_query($conn, $query);
                     <table id="myTable" class="display">
                         <thead>
                             <tr>
-                                <th>firstName</th>
-                                <th>lastName 2</th>
+                                <th></th>
+                                <th>Voornaam</th>
+                                <th>Achternaam 2</th>
                                 <th>Email</th>
+                                <th>Tel</th>
+                                <th>Onderneming</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -49,9 +53,13 @@ $result = mysqli_query($conn, $query);
                         <?php 
                  while ($row = mysqli_fetch_assoc($result)){
                     echo "<tr>";
+                    echo "<td><a href='admin_details.php?=".$row['id']."' class='btn btn-danger btn-sm'>details</a></td>";
                     echo "<td>".$row['firstName']."</td>";
                     echo "<td>".$row['lastName']."</td>";
                     echo "<td>".$row['email']."</td>";
+                    echo "<td>".$row['tel']."</td>";
+                    echo "<td>".$row['companyName']."</td>";
+                   
                     echo "</tr>";
                  }
               
