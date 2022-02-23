@@ -42,6 +42,36 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
                             </select>
                             <?php } ?>
 
+                            
+                            <?php 
+                            $querySector = "SELECT * FROM sectors ORDER BY name";
+                            $resultSector = mysqli_query($conn, $querySector);
+
+                            $queryCurrentSector = "SELECT sectors.id AS sector_id, sectors.name AS sectorName FROM teachers
+                            JOIN sectors ON sectors.id = teachers.sector_id
+                            WHERE teachers.id = $id";
+                            $resultCurrentSector = mysqli_fetch_assoc(mysqli_query($conn, $queryCurrentSector));
+                            ?>
+
+                            <select name="sector_id" class="form-select mt-2">
+
+                                <?php 
+                                while ($rowSector = mysqli_fetch_assoc($resultSector)) {
+                                
+                                        if ($resultCurrentSector['sector_id'] == $rowSector['id']) {
+                                            echo "<option value='".$rowSector['id']."' selected>".$rowSector['name']."</option>";
+                                        } else {
+                                            echo "<option value='".$rowSector['id']."'>".$rowSector['name']."</option>";
+                                        }
+                                }
+                                ?>
+
+                                </select>
+                              
+
+                            <!-- Get the current sector for the teacher
+                            Show all availble sectors -->
+
                             <input type="hidden" class="form-control mt-2" name="id" value="<?php echo $result['id']?>">
                             <input type="text" class="form-control mt-2" name="firstName" value="<?php echo $result['firstName']?>" required>
                             <input type="text" class="form-control mt-2" name="lastName" value="<?php echo $result['lastName']?>" required>

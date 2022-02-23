@@ -2,24 +2,24 @@
 include 'connection.php';
 include 'common.php';
 
-
 //print_r($_REQUEST);
 
 if (isset($_REQUEST['bijwerken'])) {
 
-    $id = $_POST['id'];
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $website = $_POST['website'];
-    $tel = $_POST['tel'];
-    $companyName = $_POST['companyName'];
-    $street_nr = $_POST['street_nr'];
-    $code_city = $_POST['code_city'];
-    $approved = $_POST['approved'];
-    $bio = $_POST['bio'];
+    $id = mysqli_real_escape_string($conn,$_POST['id']);
+    $sector_id = mysqli_real_escape_string($conn,$_POST['sector_id']);
+    $firstName = mysqli_real_escape_string($conn,$_POST['firstName']);
+    $lastName = mysqli_real_escape_string($conn,$_POST['lastName']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $website = mysqli_real_escape_string($conn,$_POST['website']);
+    $tel = mysqli_real_escape_string($conn,$_POST['tel']);
+    $companyName = mysqli_real_escape_string($conn,$_POST['companyName']);
+    $street_nr = mysqli_real_escape_string($conn,$_POST['street_nr']);
+    $code_city = mysqli_real_escape_string($conn,$_POST['code_city']);
+    $approved = mysqli_real_escape_string($conn,$_POST['approved']);
+    $bio = mysqli_real_escape_string($conn,$_POST['bio']);
 
-    $query = "UPDATE `teachers` SET `firstName` = '$firstName', `lastName` = '$lastName', `email` = '$email', `website` = '$website', `tel` = '$tel', `companyName` = '$companyName', `street_nr` = '$street_nr', `code_city` = '$code_city', `approved` = $approved, `bio` = 'bio' WHERE `id` = $id";
+    $query = "UPDATE `teachers` SET `firstName` = '$firstName', `lastName` = '$lastName', `email` = '$email', `website` = '$website', `tel` = '$tel', `companyName` = '$companyName', `street_nr` = '$street_nr', `code_city` = '$code_city', `approved` = $approved, `bio` = 'bio', `sector_id` = '$sector_id' WHERE `id` = $id";
     mysqli_query($conn, $query);
 }
 
