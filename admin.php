@@ -3,7 +3,7 @@ include 'connection.php';
 include 'common.php';
 
 
-// print_r($_REQUEST);
+//print_r($_REQUEST);
 
 if (isset($_REQUEST['bijwerken'])) {
 
@@ -28,7 +28,7 @@ if (isset($_REQUEST['verwijderen'])) {
 
     $id = $_POST['id'];
 
-    $query = "DELETE from `teachers` WHERE `id` = $id";
+    $query = "DELETE FROM `teachers` WHERE `id` = $id";
     mysqli_query($conn, $query);
 
 }
@@ -56,6 +56,15 @@ $result = mysqli_query($conn, $query);
         $('#myTable').DataTable({
     language: {
         search: "Zoeken in de tabel:",
+        lengthMenu: "_MENU_ resultaten weergeven",
+        zeroRecords: "Geen resultaten gevonden",
+        infoEmpty: "Geen resultaten om weer te geven",
+        search: "Zoeken:",
+        emptyTable: "Geen resultaten aanwezig in de tabel",
+        infoThousands: ".",
+        loadingRecords: "Een moment geduld aub - bezig met laden...",
+        info: "_START_ tot _END_ van _TOTAL_ resultaten",
+        infoFiltered: " (gefilterd uit _MAX_ resultaten)",
         paginate: {
         "first": "Eerste",
         "last": "Laatste",
@@ -72,7 +81,7 @@ $result = mysqli_query($conn, $query);
         <div class="row">
             <div class="col">
             <a href="admin.php"><img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px"></a>
-                 <h1>Admin</h1>
+            <h1>Docent<span class="docent"> Open</span></h1>
 
                 <div class="nav mb-4 mt-4">
                         <a href="admin.php" class="btn btn-secondary position-relative">

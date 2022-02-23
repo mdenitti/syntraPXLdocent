@@ -23,39 +23,39 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
             <a href="admin.php"><img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px"></a>
                  <h1>Docent<span class="docent"> Update</span></h1>
                  <div class="intro mb-4">
-                     Bijwerken van gevens docent + aanpassen status...
+                     Bijwerken van gegevens docent + aanpassen status & sector...
                  </div>
                   <div class="submitform">
                       <form method="post" action="admin.php">
 
-                      <?php if ($result['approved'] == 0) { ?>
-                      <select name="approved" class="form-select offline">
-                          <option value="0" selected>Offline</option>
-                          <option value="1">Online</option>
-                      </select>
-                      <?php } ?>
+                            <?php if ($result['approved'] == 0) { ?>
+                            <select name="approved" class="form-select offline">
+                                <option value="0" selected>Offline</option>
+                                <option value="1">Online</option>
+                            </select>
+                            <?php } ?>
 
-                      <?php if ($result['approved'] == 1) { ?>
-                      <select name="approved" class="form-select online">
-                          <option value="0">Offline</option>
-                          <option value="1" selected>Online</option>
-                      </select>
-                      <?php } ?>
+                            <?php if ($result['approved'] == 1) { ?>
+                            <select name="approved" class="form-select online">
+                                <option value="0">Offline</option>
+                                <option value="1" selected>Online</option>
+                            </select>
+                            <?php } ?>
 
-                      <input type="hidden" class="form-control mt-2" name="id" value="<?php echo $result['id']?>">
-                      <input type="text" class="form-control mt-2" name="firstName" value="<?php echo $result['firstName']?>" required>
-                      <input type="text" class="form-control mt-2" name="lastName" value="<?php echo $result['lastName']?>" required>
-                      <input type="text" class="form-control mt-2" name="email" value="<?php echo $result['email']?>" required>
-                      <input type="text" class="form-control mt-2" name="website" value="<?php echo $result['website']?>" required>
-                      <input type="text" class="form-control mt-2" name="tel" value="<?php echo $result['tel']?>" required>
-                      <input type="text" class="form-control mt-2" name="companyName" value="<?php echo $result['companyName']?>" required>
-                      <input type="text" class="form-control mt-2" name="street_nr" value="<?php echo $result['street_nr']?>" required>
-                      <input type="text" class="form-control mt-2" name="code_city" value="<?php echo $result['code_city']?>" required>
-                      <textarea class="form-control mt-2" name="bio"><?php echo $result['bio']?></textarea>
-                      <button type="submit" class="btn btn-sm btn-success mt-2" name="bijwerken" value="bijwerken">Bijwerken</button>
-                      <button type="submit" onclick="return confirm('Ben u zeker?')" class="btn btn-sm btn-danger mt-2" name="verwijderen" value="verwijderen">Verwijderen</button>
+                            <input type="hidden" class="form-control mt-2" name="id" value="<?php echo $result['id']?>">
+                            <input type="text" class="form-control mt-2" name="firstName" value="<?php echo $result['firstName']?>" required>
+                            <input type="text" class="form-control mt-2" name="lastName" value="<?php echo $result['lastName']?>" required>
+                            <input type="text" class="form-control mt-2" name="email" value="<?php echo $result['email']?>" required>
+                            <input type="text" class="form-control mt-2" name="website" value="<?php echo $result['website']?>" required>
+                            <input type="text" class="form-control mt-2" name="tel" value="<?php echo $result['tel']?>" required>
+                            <input type="text" class="form-control mt-2" name="companyName" value="<?php echo $result['companyName']?>" required>
+                            <input type="text" class="form-control mt-2" name="street_nr" value="<?php echo $result['street_nr']?>" required>
+                            <input type="text" class="form-control mt-2" name="code_city" value="<?php echo $result['code_city']?>" required>
+                            <textarea class="form-control mt-2" name="bio"><?php echo $result['bio']?></textarea>
+                            <button type="submit" class="btn btn-sm btn-success mt-2" name="bijwerken" value="bijwerken">Bijwerken</button>
+                            <button type="submit" onclick="return confirm('Ben u zeker?')" class="btn btn-sm btn-danger mt-2" name="verwijderen" value="verwijderen">Verwijderen</button>
                      
-
+                    </form>        
                   </div>
 
             </div>
