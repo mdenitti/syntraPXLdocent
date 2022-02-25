@@ -14,7 +14,7 @@ if (isset($_POST['filter'])) {
     teachers.companyName
     FROM teachers 
     JOIN sectors ON sectors.id = teachers.sector_id
-    WHERE approved = 0 AND sector_id = $sectorId
+    WHERE approved = 1 AND sector_id = $sectorId
     ";
     $queryResult = mysqli_query($conn, $query);
 
