@@ -56,3 +56,6 @@ a.btn.btn-outline-secondary.position-relative {
 a.btn.btn-secondary.position-relative {
     margin-right: 30px;
 }
+span#inputGroup-sizing-default {
+    width: 205px;
+}

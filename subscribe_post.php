@@ -4,15 +4,15 @@ include 'common.php';
 
 // create vars to receive the input;
 
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$email = $_POST['email'];
-$website = $_POST['website'];
-$tel = $_POST['tel'];
-$companyName = $_POST['companyName'];
-$street_nr = $_POST['street_nr'];
-$code_city = $_POST['code_city'];
-$bio = $_POST['bio'];
+$firstName = mysqli_real_escape_string($conn,$_POST['firstName']);
+$lastName = mysqli_real_escape_string($conn,$_POST['lastName']);
+$email = mysqli_real_escape_string($conn,$_POST['email']);
+$website = mysqli_real_escape_string($conn,$_POST['website']);
+$tel = mysqli_real_escape_string($conn,$_POST['tel']);
+$companyName = mysqli_real_escape_string($conn,$_POST['companyName']);
+$street_nr = mysqli_real_escape_string($conn,$_POST['street_nr']);
+$code_city = mysqli_real_escape_string($conn,$_POST['code_city']);
+$bio = mysqli_real_escape_string($conn,$_POST['bio']);
 
 $query = "SELECT * FROM teachers WHERE email = '$email'";
 $result = mysqli_query($conn, $query);
