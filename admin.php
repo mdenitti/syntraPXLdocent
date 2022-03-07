@@ -34,7 +34,7 @@ if (isset($_REQUEST['verwijderen'])) {
 
 }
 
-$query = "SELECT * FROM teachers WHERE approved = 0";
+$query = "SELECT * FROM teachers WHERE approved = 0 ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 
 ?>

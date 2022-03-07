@@ -3,7 +3,7 @@ include 'connection.php';
 include 'common.php';
 
 
-$query = "SELECT * FROM teachers WHERE approved = 1";
+$query = "SELECT * FROM teachers WHERE approved = 1 ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 
 
