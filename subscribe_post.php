@@ -13,6 +13,8 @@ $companyName = mysqli_real_escape_string($conn,$_POST['companyName']);
 $street_nr = mysqli_real_escape_string($conn,$_POST['street_nr']);
 $code_city = mysqli_real_escape_string($conn,$_POST['code_city']);
 $bio = mysqli_real_escape_string($conn,$_POST['bio']);
+$type = mysqli_real_escape_string($conn,$_POST['type']);
+$sector_id = mysqli_real_escape_string($conn,$_POST['sector_id']);
 
 $query = "SELECT * FROM teachers WHERE email = '$email'";
 $result = mysqli_query($conn, $query);
@@ -20,7 +22,7 @@ $result = mysqli_query($conn, $query);
 // count() very usefull -> but not with assoc arrays... only ['one','two','three']
 
 if(mysqli_num_rows($result) == 0) {
-    $query = "INSERT INTO `teachers` (`firstName`, `lastName`, `email`, `website`, `tel`, `companyName`, `street_nr`, `code_city`, `approved`, `bio`) VALUES ('$firstName', '$lastName', '$email', '$website', '$tel', '$companyName', '$street_nr', '$code_city', 0, '$bio')";
+    $query = "INSERT INTO `teachers` (`firstName`, `lastName`, `email`, `website`, `tel`, `companyName`, `street_nr`, `code_city`, `approved`, `bio`, `sector_id`, `type`) VALUES ('$firstName', '$lastName', '$email', '$website', '$tel', '$companyName', '$street_nr', '$code_city', 0, '$bio','$sector_id','$type')";
 
     $result = mysqli_query($conn, $query);
     $ok = 1;

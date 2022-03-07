@@ -35,6 +35,25 @@ include 'common.php';
                       <input type="text" class="form-control mt-2" name="companyName" placeholder="Ondernemingsnaam" required>
                       <input type="text" class="form-control mt-2" name="street_nr" placeholder="Straat & nr" required>
                       <input type="text" class="form-control mt-2 mb-2" name="code_city" placeholder="Postcode & gemeente" required>
+                      <select name="type" class="form-select mt-2 mb-2" required>
+                        <option value="">Kies uw statuut</option>
+                        <option value="Zelfstandige">Zelfstandige</option>
+                        <option value="Zelfstandige in bijberoep">Zelfstandige in bijberoep</option>
+                        <option value="Loondienst of andere">Loondienst of andere</option>
+                      </select>
+
+                      <select name="sector_id" class="form-select mt-2 mb-2" required>
+                      <option value="">Kies uw sector</option>
+                      <?php 
+                      // Fetch sectors from db
+                      $querySector = "SELECT * FROM sectors ORDER BY name";
+                      $querySectorResult = mysqli_query($conn, $querySector);
+                      while ($row = mysqli_fetch_assoc($querySectorResult)) {
+                        echo "<option value='".$row['id']."'>".$row['name']."</option>";
+                      }
+                      
+                      ?>
+                      </select>
                       <textarea id="editor" class="form-control mt-2" name="bio" placeholder="Beschrijf uw zelf"></textarea>
                       <button type="submit" class="btn btn-danger mt-2">Aanvraag indienen</button>
                   </div>
