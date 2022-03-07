@@ -18,8 +18,9 @@ if (isset($_REQUEST['bijwerken'])) {
     $code_city = mysqli_real_escape_string($conn,$_POST['code_city']);
     $approved = mysqli_real_escape_string($conn,$_POST['approved']);
     $bio = mysqli_real_escape_string($conn,$_POST['bio']);
+    $type = mysqli_real_escape_string($conn,$_POST['type']);
 
-    $query = "UPDATE `teachers` SET `firstName` = '$firstName', `lastName` = '$lastName', `email` = '$email', `website` = '$website', `tel` = '$tel', `companyName` = '$companyName', `street_nr` = '$street_nr', `code_city` = '$code_city', `approved` = $approved, `bio` = 'bio', `sector_id` = '$sector_id' WHERE `id` = $id";
+    $query = "UPDATE `teachers` SET `firstName` = '$firstName', `lastName` = '$lastName', `email` = '$email', `website` = '$website', `tel` = '$tel', `companyName` = '$companyName', `street_nr` = '$street_nr', `code_city` = '$code_city', `approved` = $approved, `bio` = '$bio', `sector_id` = $sector_id, `type` = '$type' WHERE `id` = $id";
     mysqli_query($conn, $query);
 }
 
@@ -123,7 +124,7 @@ $result = mysqli_query($conn, $query);
                                 <th>Achternaam</th>
                                 <th>Email</th>
                                 <th>Tel</th>
-                                <th>Onderneming</th>        
+                                <th>Onderneming</th> 
                             </tr>
                         </thead>
                         <tbody>

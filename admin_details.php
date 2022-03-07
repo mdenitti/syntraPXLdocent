@@ -70,6 +70,14 @@ $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
                                 ?>
 
                             </select>
+
+                            <select name="type" class="form-select mt-2">
+
+                            <option value="Zelfstandige" <?php if ($result['type'] == 'Zelfstandige') { echo 'selected';}?>>Zelfstandige</option>
+                            <option value="Zelfstandige in bijberoep" <?php if ($result['type'] == 'Zelfstandige in bijberoep') { echo 'selected';}?>>Zelfstandige in bijberoep</option>
+                            <option value="Loondienst of andere" <?php if ($result['type'] == 'Loondienst of andere') { echo 'selected';}?>>Loondienst of andere</option>
+
+                            </select>
                               
                             <!-- Get the current sector for the teacher
                             Show all availble sectors -->
