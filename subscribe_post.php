@@ -1,4 +1,6 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+require 'vendor/autoload.php';
 include 'connection.php';
 include 'common.php';
 
@@ -27,7 +29,42 @@ if(mysqli_num_rows($result) == 0) {
     $result = mysqli_query($conn, $query);
     $ok = 1;
 
-    // SHOULDHAVE: Send out an e-mail
+    // Snippet mail out:
+
+    $mail = new PHPMailer;
+
+    // $mail->SMTPDebug = 3;
+
+        $mail->isSMTP();
+        $mail->Host = 'localhost';
+        $mail->SMTPAuth = false;
+        $mail->Port = 1025;
+
+        $mail->setFrom('noreply@syntrapxl.be', 'SyntraPXLDocent');
+        $mail->addAddress('info@syntrapxl.be', 'SyntraPXLAdmin');
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);
+
+        $mail->Subject = "$firstName, Uw registratie voor het SyntraPXL portaal is in behandeling...";
+        $mail->Body = "
+        <style>
+        body {
+            font-family:Arial;
+        }
+        </style>
+        <img src='https://www.syntra-limburg.be//themes/custom/sassy/assets/images/og-syntra-default.png' width=250px>
+        <br>
+        <br>
+        <b>Nieuwe aanmelding docent $firstName - $lastName - $email</b><br><br>
+        Beste $firstName,<br><br>
+        Wij hebben uw registratie prima ontvangen en zal asap worden verwerkt door één van onze medewerkers. <br>Van wij hebben uw registratiezodra deze werd goedkeurd is uw profiel online zichtbaar. Bijkomende vragen steeds welkom. <br>
+        Gelieve niet op deze mail te reageren<br><br>
+        <b>SyntraPXL</b><br>
+        
+        ";
+    
+        $mail->send();
 
 } else {
     $ok = 0;
@@ -70,5 +107,6 @@ if(mysqli_num_rows($result) == 0) {
             </div>
         </div>
     </div>
+    <?PHP include 'footer.php'; ?>
 </body>
 </html>
