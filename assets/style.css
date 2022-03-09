@@ -62,3 +62,14 @@ span#inputGroup-sizing-default {
 a.btn.btn-outline-danger.position-relative.export {
     margin-right: 25px;
 }
+span.input-group-text.public {
+    width: 200px;
+    background-color: #d4d9df;
+}
+h3.docentdetails {
+    color: red;
+    font-size: 40px;
+}
+span.sectorpublic {
+    font-weight: 300;
+}

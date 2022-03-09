@@ -56,6 +56,8 @@ if (isset($_POST['filter'])) {
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWuWTaHtAfkhEP9o1VaA38djolEfKF77Y&callback=initMap"
 		async defer></script>
 
+      
+
 	<script type="text/javascript">
 	var map;
 	var geocoder;		
@@ -206,7 +208,7 @@ if (isset($_POST['filter'])) {
                         <?php 
                             while ($row = mysqli_fetch_assoc($queryResult)){
                                 echo "<tr>";
-                                echo "<td><a href='admin_details.php?id=".$row['id']."' class='btn btn-danger btn-sm'>details</a></td>";
+                                echo "<td><a href='public_details.php?id=".$row['id']."' class='btn btn-danger btn-sm'>details</a></td>";
                                 echo "<td>".$row['firstName']."</td>";
                                 echo "<td>".$row['lastName']."</td>";
                                 echo "<td>".$row['email']."</td>";
