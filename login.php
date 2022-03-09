@@ -1,6 +1,15 @@
 <?php
 include 'connection.php';
-include 'common.php';
+include 'includes/common.php';
+
+if(isset($_POST['login'])) {
+   $username = $_POST['username'];
+   $password = $_POST['password'];
+   $_SESSION['user'] = hash('sha256',$password);
+   header('Location: admin.php');
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,16 +25,24 @@ include 'common.php';
     <div class="container">
         <div class="row">
             <div class="col">
-                 <img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px">
+                 <a href="index.php"><img src="assets/logo.svg" class="img-fluid mt-5 mb-3" width="150px"></a>
                  <h1>Admin<span class="docent"> Login</span></h1>
+
+                 <?PHP if (isset($_GET['logout'])) { ?> 
+                         <div class="alert alert-warning" role="alert">
+                          U bent veilig uitgelogd...
+                        </div>
+                    <?PHP session_destroy(); ?>
+                    <meta http-equiv="refresh" content="2;url=login.php">
+                    <?PHP } ?>
                  
                  <div class="submitform">
-                      <form method="post" action="subscribe_post.php">
-                      <input type="text" class="form-control mt-2" name="firstName" placeholder="Voornaam" required>
-                      <input type="text" class="form-control mt-2" name="lastName" placeholder="Achternaam" required>
-                </div>
+                      <form method="post" action="">
+                      <input type="text" class="form-control mt-2" name="username" placeholder="e-mail" required value="info@syntrapxl.be">
+                      <input type="password" class="form-control mt-2" name="password" placeholder="paswoord" required value="welcome">
+                      <button type="submit" class="btn btn-sm btn-danger mt-2" name="login" value="login">Login</button>
+                    </div>
               
-
             </div>
         </div>
     </div>

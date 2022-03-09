@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 require 'vendor/autoload.php';
 include 'connection.php';
-include 'common.php';
+include 'includes/common.php';
 
 // create vars to receive the input;
 

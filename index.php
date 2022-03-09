@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-include 'common.php';
+include 'includes/common.php';
 
 if (isset($_POST['filter'])) {
 

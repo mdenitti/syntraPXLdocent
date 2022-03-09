@@ -59,3 +59,6 @@ a.btn.btn-secondary.position-relative {
 span#inputGroup-sizing-default {
     width: 205px;
 }
+a.btn.btn-outline-danger.position-relative.export {
+    margin-right: 25px;
+}

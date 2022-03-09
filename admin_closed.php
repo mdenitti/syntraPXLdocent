@@ -1,12 +1,9 @@
 <?php
 include 'connection.php';
-include 'common.php';
-
-
+include 'includes/common.php';
+checkLogin();
 $query = "SELECT * FROM teachers WHERE approved = 1 ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +66,14 @@ $result = mysqli_query($conn, $query);
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             <?PHP include 'includes/countClosed.php'?>
                             </span>
+                        </a>
+
+                        <a href="export.php" class="btn btn-outline-danger position-relative export">
+                            Exporteer docenten
+                        </a>
+
+                        <a href="login.php?logout" class="btn btn-outline-danger position-relative">
+                            Logout
                         </a>
                 </div>
                         

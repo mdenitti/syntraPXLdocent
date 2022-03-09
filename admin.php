@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
-include 'common.php';
-
+include 'includes/common.php';
+checkLogin();
 //print_r($_REQUEST);
 
 if (isset($_REQUEST['bijwerken'])) {
@@ -100,6 +100,16 @@ $result = mysqli_query($conn, $query);
                             <?PHP include 'includes/countClosed.php'?>
                             </span>
                         </a>
+
+                        <a href="export.php" class="btn btn-outline-danger position-relative export">
+                            Exporteer docenten
+                        </a>
+
+                        <a href="login.php?logout" class="btn btn-outline-danger position-relative">
+                            Logout
+                        </a>
+
+
                 </div>
                         
                  

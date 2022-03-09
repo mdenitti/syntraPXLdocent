@@ -1,6 +1,7 @@
 <?php
 include 'connection.php';
-include 'common.php';
+include 'includes/common.php';
+checkLogin();
 $id = $_GET['id'];
 $query = "SELECT * FROM teachers WHERE id = $id";
 $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
